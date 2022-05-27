@@ -83,12 +83,21 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="R3S-Rt-tn5">
                                                 <rect key="frame" x="-2" y="0.0" width="260" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="tDs-ZD-PdU"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="i8G-FG-5wz">
                                                 <rect key="frame" x="-2" y="50" width="260" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="E2e-nw-uss"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r2d-8s-EpX">
                                                 <rect key="frame" x="-2" y="100" width="260" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cxs-p7-Sko"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -107,6 +116,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueSlider" destination="r2d-8s-EpX" id="LW9-Lx-dVa"/>
+                        <outlet property="blueValueLabel" destination="ZZM-go-JWk" id="81z-5e-iee"/>
+                        <outlet property="greenSlider" destination="i8G-FG-5wz" id="FrK-vF-9Zw"/>
+                        <outlet property="greenValueLabel" destination="pOZ-Ho-lFG" id="bIF-bK-PFn"/>
+                        <outlet property="redSlider" destination="R3S-Rt-tn5" id="af7-nW-EFk"/>
+                        <outlet property="redValueLabel" destination="STT-aW-AOV" id="Hmd-VS-zxl"/>
                         <outlet property="viewColor" destination="hOi-uA-0DT" id="ZJe-Nv-gau"/>
                     </connections>
                 </viewController>
