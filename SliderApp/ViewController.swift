@@ -44,14 +44,13 @@ class ViewController: UIViewController {
     @IBAction func rgbSlider(_ sender: UISlider) {
         switch sender {
         case redSlider:
-            setValue(for: redValueLabel)
+            setValue (for: redValueLabel)
         case greenSlider:
             setValue(for: greenValueLabel)
         default:
             setValue(for: blueValueLabel)
         }
     }
-}
 
 extension ViewController {
     
