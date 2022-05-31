@@ -121,7 +121,7 @@
                         <outlet property="greenSlider" destination="i8G-FG-5wz" id="FrK-vF-9Zw"/>
                         <outlet property="greenValueLabel" destination="pOZ-Ho-lFG" id="bIF-bK-PFn"/>
                         <outlet property="redSlider" destination="R3S-Rt-tn5" id="af7-nW-EFk"/>
-                        <outlet property="redValueLabel" destination="STT-aW-AOV" id="Hmd-VS-zxl"/>
+                        <outlet property="redValueLabel" destination="g6a-CU-x1q" id="xqW-Oa-1sQ"/>
                         <outlet property="viewColor" destination="hOi-uA-0DT" id="ZJe-Nv-gau"/>
                     </connections>
                 </viewController>
