@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var viewColor: UIView!
     
-    
     @IBOutlet weak var redValueLabel: UILabel!
     @IBOutlet weak var greenValueLabel: UILabel!
     @IBOutlet weak var blueValueLabel: UILabel!
@@ -22,51 +21,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewColor.layer.cornerRadius = 10
     
-                
         // Slider
         
         redSlider.minimumTrackTintColor = .red
-        redSlider.maximumTrackTintColor = .white
-    
-        greenSlider.minimumTrackTintColor = .green
-        greenSlider.maximumTrackTintColor = .white
-        
-        blueSlider.minimumTrackTintColor = .blue
-        blueSlider.maximumTrackTintColor = .white
+        greenSlider.maximumTrackTintColor = .green
         
         setColor()
-        setValue(for: redValueLabel, greenValueLabel, blueValueLabel)
-        }
+        setValue(for: redValueLabel)
+        setValue(for: greenValueLabel)
+        setValue(for: blueValueLabel)
     }
 
 
     @IBAction func rgbSlider(_ sender: UISlider) {
+        setColor()
         switch sender {
         case redSlider:
-            setValue(for: redValueLabel)
+            redValueLabel.text = string(from: redSlider)
         case greenSlider:
-            setValue(for: greenValueLabel)
+            greenValueLabel.text = string(from: greenSlider)
         default:
-            setValue(for: blueValueLabel)
+            blueValueLabel.text = string(from: blueSlider)
         }
-}
-        private func setValue(for label: UILabel) {
-            switch label {
-            case redValueLabel:
-                redValueLabel.text = string(from: redSlider)
-            case greenValueLabel:
-                greenValueLabel.text = string(from: greenSlider)
-            case blueValueLabel:
-                blueValueLabel.text = string(from: blueSlider)
-            }
-        }
+    }
 
-        
-
-extension ViewController {
-    
     private func setColor() {
         viewColor.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
@@ -88,17 +69,10 @@ extension ViewController {
             }
         }
     }
-}
-   
-let ciColor = CIColor(color: .white)
-redSlider.value = Float(ciColor.red)
-greenSlider.value = Float(ciColor.green)
-blueSlider.value = Float(ciColor.blue)
 
-    
     private func string(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value)
+            String(format: "%.2f", slider.value)
     }
-
+}
 
 
