@@ -11,7 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var viewColor: UIView!
     
-    @IBOutlet weak var redValueLabel: UIStackView!
+    
+    @IBOutlet weak var redValueLabel: UILabel!
     @IBOutlet weak var greenValueLabel: UILabel!
     @IBOutlet weak var blueValueLabel: UILabel!
     
@@ -44,13 +45,25 @@ class ViewController: UIViewController {
     @IBAction func rgbSlider(_ sender: UISlider) {
         switch sender {
         case redSlider:
-            setValue (for: redValueLabel)
+            setValue(for: redValueLabel)
         case greenSlider:
             setValue(for: greenValueLabel)
         default:
             setValue(for: blueValueLabel)
         }
-    }
+}
+        private func setValue(for label: UILabel) {
+            switch label {
+            case redValueLabel:
+                redValueLabel.text = string(from: redSlider)
+            case greenValueLabel:
+                greenValueLabel.text = string(from: greenSlider)
+            case blueValueLabel:
+                blueValueLabel.text = string(from: blueSlider)
+            }
+        }
+
+        
 
 extension ViewController {
     
@@ -75,19 +88,17 @@ extension ViewController {
             }
         }
     }
-    
+}
    
-    private func setSliders() {
-        let ciColor = CIColor(color: UIColor)
-        
-        redSlider.value = Float(ciColor.red)
-        greenSlider.value = Float(ciColor.green)
-        blueSlider.value = Float(ciColor.blue)
-    }
+let ciColor = CIColor(color: .white)
+redSlider.value = Float(ciColor.red)
+greenSlider.value = Float(ciColor.green)
+blueSlider.value = Float(ciColor.blue)
+
     
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
-}
+
 
 
