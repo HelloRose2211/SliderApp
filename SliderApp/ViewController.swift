@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         
         viewColor.layer.cornerRadius = 10
     
-        // Slider
-        
         redSlider.minimumTrackTintColor = .red
         greenSlider.maximumTrackTintColor = .green
         
