@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKe-Dz-8hl">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SliderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WhD-US-5ZY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOi-uA-0DT">
@@ -24,11 +24,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-Sz-a1t">
-                                <rect key="frame" x="170.66666666666666" y="632.66666666666663" width="73" height="39.333333333333371"/>
+                                <rect key="frame" x="170.66666666666666" y="612.66666666666663" width="73" height="39.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="u45-1M-oVh"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Xk5-QE-hzL">
                                 <rect key="frame" x="16" y="240" width="382" height="136"/>
@@ -139,27 +142,39 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueSlider" destination="bb4-Fn-kb5" id="zXk-I0-oX9"/>
+                        <outlet property="blueTextField" destination="Rbo-4S-QvQ" id="8Re-n8-77r"/>
                         <outlet property="blueValueLabel" destination="ZZM-go-JWk" id="81z-5e-iee"/>
+                        <outlet property="greenSlider" destination="oGE-tE-6ph" id="eYt-BZ-i9V"/>
+                        <outlet property="greenTextField" destination="EP3-jV-fzB" id="QdA-sO-XBh"/>
                         <outlet property="greenValueLabel" destination="pOZ-Ho-lFG" id="bIF-bK-PFn"/>
+                        <outlet property="redSlider" destination="F3B-r8-hB6" id="dLB-lf-QTF"/>
+                        <outlet property="redTextField" destination="eUF-eU-jCk" id="hW4-GU-03j"/>
                         <outlet property="redValueLabel" destination="g6a-CU-x1q" id="xqW-Oa-1sQ"/>
                         <outlet property="viewColor" destination="hOi-uA-0DT" id="ZJe-Nv-gau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17.39130434782609" y="83.967391304347828"/>
+            <point key="canvasLocation" x="2155" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="fs1-jo-wf2">
             <objects>
-                <viewController id="riU-2Y-dOT" sceneMemberID="viewController">
+                <viewController id="riU-2Y-dOT" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uG5-YV-PVD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="DzT-z9-O3c"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PrW-JV-qk0"/>
+                    <navigationItem key="navigationItem" id="PrW-JV-qk0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="j7p-an-KKR">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="L7k-qA-RQf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cg9-kJ-VBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,17 +192,13 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="riU-2Y-dOT" kind="relationship" relationship="rootViewController" id="g1r-fK-0Vr"/>
-                        <segue destination="riU-2Y-dOT" kind="presentation" id="h7g-6A-sF4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UV9-dU-8gp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="731.8840579710145" y="75.815217391304358"/>
+            <point key="canvasLocation" x="700" y="84"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="h7g-6A-sF4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
