@@ -11,9 +11,9 @@
         <!--Color View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ColorViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorViewController" customModule="SliderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WhD-US-5ZY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOi-uA-0DT">
@@ -24,7 +24,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-Sz-a1t">
-                                <rect key="frame" x="170.66666666666666" y="612.66666666666663" width="73" height="39.333333333333371"/>
+                                <rect key="frame" x="170.66666666666666" y="632.66666666666663" width="73" height="39.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
@@ -93,12 +93,21 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="F3B-r8-hB6">
                                                 <rect key="frame" x="-2" y="0.0" width="201.33333333333334" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Y8B-Zv-D52"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oGE-tE-6ph">
                                                 <rect key="frame" x="-2" y="53" width="201.33333333333334" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="q0n-vx-wkJ"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bb4-Fn-kb5">
                                                 <rect key="frame" x="-2" y="106" width="201.33333333333334" height="31"/>
+                                                <connections>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="VTa-Kp-own"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -145,13 +154,13 @@
                         <outlet property="blueSlider" destination="bb4-Fn-kb5" id="zXk-I0-oX9"/>
                         <outlet property="blueTextField" destination="Rbo-4S-QvQ" id="8Re-n8-77r"/>
                         <outlet property="blueValueLabel" destination="ZZM-go-JWk" id="81z-5e-iee"/>
+                        <outlet property="colorView" destination="hOi-uA-0DT" id="wBu-3A-hBN"/>
                         <outlet property="greenSlider" destination="oGE-tE-6ph" id="eYt-BZ-i9V"/>
                         <outlet property="greenTextField" destination="EP3-jV-fzB" id="QdA-sO-XBh"/>
                         <outlet property="greenValueLabel" destination="pOZ-Ho-lFG" id="bIF-bK-PFn"/>
                         <outlet property="redSlider" destination="F3B-r8-hB6" id="dLB-lf-QTF"/>
                         <outlet property="redTextField" destination="eUF-eU-jCk" id="hW4-GU-03j"/>
                         <outlet property="redValueLabel" destination="g6a-CU-x1q" id="xqW-Oa-1sQ"/>
-                        <outlet property="viewColor" destination="hOi-uA-0DT" id="ZJe-Nv-gau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,7 +170,7 @@
         <!--Main View Controller-->
         <scene sceneID="fs1-jo-wf2">
             <objects>
-                <viewController id="riU-2Y-dOT" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="riU-2Y-dOT" customClass="MainViewController" customModule="SliderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uG5-YV-PVD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +180,7 @@
                     <navigationItem key="navigationItem" id="PrW-JV-qk0">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="j7p-an-KKR">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="L7k-qA-RQf"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="L7k-qA-RQf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
