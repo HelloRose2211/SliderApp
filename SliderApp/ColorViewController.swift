@@ -9,7 +9,7 @@ import UIKit
 
 class ColorViewController: UIViewController {
 
-    @IBOutlet weak var viewColor: UIView!
+    @IBOutlet weak var colorView: UIView!
     
     @IBOutlet weak var redValueLabel: UILabel!
     @IBOutlet weak var greenValueLabel: UILabel!
@@ -24,23 +24,28 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var blueTextField: UITextField!
     
     var delegate: ColorViewControllerDelegate!
-    var colorView: UIColor!
+    var viewColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewColor.layer.cornerRadius = 10
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
+        
+        colorView.layer.cornerRadius = 10
     
         redSlider.tintColor = .red
         greenSlider.tintColor = .green
         
-        viewColor.backgroundColor = colorView
+        colorView.backgroundColor = viewColor
         
         setSliders()
         setValue(for: redValueLabel, greenValueLabel, blueValueLabel)
         setValue(for: redTextField, greenTextField, blueTextField)
     }
 
+    
     @IBAction func rgbSlider(_ sender: UISlider) {
         
         switch sender {
@@ -59,7 +64,7 @@ class ColorViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
-        delegate.setColor(viewColor.backgroundColor ?? .white)
+        delegate.setColor(colorView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
 }
@@ -67,7 +72,7 @@ class ColorViewController: UIViewController {
 extension ColorViewController {
     
     private func setColor() {
-        viewColor.backgroundColor = UIColor(
+        colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
@@ -99,7 +104,7 @@ extension ColorViewController {
     }
     
     private func setSliders() {
-        let ciColor = CIColor(color: colorView)
+        let ciColor = CIColor(color: viewColor)
             
         redSlider.value = Float(ciColor.red)
         greenSlider.value = Float(ciColor.green)
